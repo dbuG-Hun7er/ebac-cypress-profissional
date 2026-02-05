@@ -76,6 +76,8 @@ npx cypress open
 ou em modo headless:
 
 npx cypress run
+```
+
 
 🌐 Aplicação testada
 
