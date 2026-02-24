@@ -21,3 +21,8 @@ cypress/downloads/
 # Sistema
 .DS_Store
 Thumbs.db
+node_modules/
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+cypress/reports/
