@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-02-24T04:59:46.758Z",
+    "end": "2026-02-24T04:59:57.814Z",
+    "duration": 11056,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2799af0b-b362-4205-ad67-843286b01647",
+      "title": "",
+      "fullFile": "cypress\\e2e\\m22\\checkout.flow.cy.js",
+      "file": "cypress\\e2e\\m22\\checkout.flow.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ff89ab41-e5b8-4e7d-8b78-79be87268a32",
+          "title": "M22 - Checkout (App Actions)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "deve realizar o fluxo até o checkout e preencher dados",
+              "fullTitle": "M22 - Checkout (App Actions) deve realizar o fluxo até o checkout e preencher dados",
+              "timedOut": null,
+              "duration": 10981,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"address\").then(dados => {\n  (0, _checkout.doCheckout)(dados);\n});",
+              "err": {},
+              "uuid": "681fbf41-8500-4bbe-9639-fe14757ac860",
+              "parentUUID": "ff89ab41-e5b8-4e7d-8b78-79be87268a32",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "681fbf41-8500-4bbe-9639-fe14757ac860"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10981,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

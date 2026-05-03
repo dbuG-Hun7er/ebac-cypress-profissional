@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-02-24T04:59:59.190Z",
+    "end": "2026-02-24T05:00:11.530Z",
+    "duration": 12340,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "47bf973b-8d14-4035-bc6b-68bffebbabf5",
+      "title": "",
+      "fullFile": "cypress\\e2e\\m23\\cart.intercept.cy.js",
+      "file": "cypress\\e2e\\m23\\cart.intercept.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6ebc1f84-1dea-4bb7-8ca6-c86bff5a8ca8",
+          "title": "M23 - Carrinho com Intercept",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "deve validar fluxo de carrinho com intercept (até botão Add To Cart)",
+              "fullTitle": "M23 - Carrinho com Intercept deve validar fluxo de carrinho com intercept (até botão Add To Cart)",
+              "timedOut": null,
+              "duration": 8468,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept('GET', '**/public/getCart*', {\n  statusCode: 200,\n  body: {\n    success: true,\n    cart: {\n      items: []\n    }\n  }\n}).as('getCart');\ncy.intercept('PUT', '**/public/updateCart*', {\n  statusCode: 200,\n  body: {\n    success: true\n  }\n}).as('updateCart');\n// ir para browse\ncy.get('[href=\"/Tab/Browse\"]').click();\ncy.get('[data-testid=\"browse-product-list\"]').scrollTo('bottom');\ncy.get('[data-testid=\"productDetails\"]').should('have.length.greaterThan', 0).last().click();\ncy.get('[data-testid=\"addToCart\"]').scrollIntoView().should('be.visible').and('contain.text', 'Add To Cart');",
+              "err": {},
+              "uuid": "87bcec80-5728-4f29-9ef6-429024cddbbe",
+              "parentUUID": "6ebc1f84-1dea-4bb7-8ca6-c86bff5a8ca8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "deve remover item do carrinho",
+              "fullTitle": "M23 - Carrinho com Intercept deve remover item do carrinho",
+              "timedOut": null,
+              "duration": 3722,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept('GET', '**/public/getCart*', {\n  statusCode: 200,\n  body: {\n    success: true,\n    cart: {\n      items: [{\n        productId: 'fake-1',\n        name: 'Tênis Esportivo',\n        price: 150,\n        quantity: 1\n      }]\n    }\n  }\n}).as('getCartComItem');\ncy.intercept('PUT', '**/public/updateCart*', {\n  statusCode: 200,\n  body: {\n    success: true\n  }\n}).as('updateCart');\ncy.visit('/Tab/Cart');\ncy.wait('@getCartComItem');\ncy.get('[data-testid=\"removeItem\"]').should('be.visible').click({\n  force: true\n});\ncy.wait('@updateCart');",
+              "err": {
+                "message": "SyntaxError: The following error originated from your application code, not from Cypress.\n\n  > Unexpected token '<'\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application",
+                "estack": "SyntaxError: The following error originated from your application code, not from Cypress.\n\n  > Unexpected token '<'\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application",
+                "diff": null
+              },
+              "uuid": "f9d335dc-766a-4229-ba30-9fdc42982517",
+              "parentUUID": "6ebc1f84-1dea-4bb7-8ca6-c86bff5a8ca8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "87bcec80-5728-4f29-9ef6-429024cddbbe"
+          ],
+          "failures": [
+            "f9d335dc-766a-4229-ba30-9fdc42982517"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 12190,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
