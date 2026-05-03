@@ -3,13 +3,23 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:report": "cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports/mochawesome,overwrite=false,html=false,json=true",
+    "report:merge": "npx mochawesome-merge cypress/reports/mochawesome/*.json > cypress/reports/report.json",
+    "report:html": "npx marge cypress/reports/report.json -f relatorio-final -o cypress/reports/html",
+    "report:clean": "powershell -Command \"if (Test-Path cypress/reports) { Remove-Item cypress/reports -Recurse -Force }\"",
+    "report:all": "npm run report:clean && npm run test:report && npm run report:merge && npm run report:html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "cypress": "^15.10.0"
+    "cypress": "^15.10.0",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2"
   }
 }
