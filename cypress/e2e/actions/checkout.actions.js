@@ -10,7 +10,7 @@ export function doCheckout(dados) {
 
   // Produto
   product.visitProduct();
-  product.selectSize("S");
+  product.selectSize("XS");
   product.selectColor("Green");
   product.increaseQty(1);
   product.addToCart();
